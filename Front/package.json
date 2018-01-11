@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev": "lite-server",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "ng build --target=production -e ${NODE_ENV:-production} --aot"
   },
   "engines": {
     "node": "8.7.0",
