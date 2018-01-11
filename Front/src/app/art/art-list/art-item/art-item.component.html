@@ -1,0 +1,15 @@
+<!-- [routerLink]="[art.id]" -->
+<!-- [href] = "'http://192.168.182.131:3000' + art.picture.url" -->
+<a routerLinkActive="active" [href]="'http://192.168.182.131:3000' + art.picture.url">
+  <!-- <div class="pull-left">
+  <h4 class="list-group-item-heading">{{ art.title }}</h4>
+  <p class="list-group-item-text">{{ art.description }}</p>
+  <p class="list-group-item-text">{{ art.id }}</p>
+</div> -->
+  <img 
+    class="materialboxed row col-sm-4" 
+    materialize="materialbox" 
+    height=350 
+    [attr.data-caption]="art.description" 
+    [src]="'http://192.168.182.131:3000' + art.picture.url">
+</a>

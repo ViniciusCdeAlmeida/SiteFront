@@ -1,0 +1,19 @@
+<div class="container">
+  <form [formGroup]="categoryForm" (ngSubmit)="save()">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            formControlName="title"
+            class="form-control">
+        </div>
+      </div>
+    </div>
+    <button type="submit" class='btn btn-outline-primary btn-lg' >Submit</button>
+  </form>
+  <hr/>
+  <a (click)="onBackPage()">Back to Main Page</a>
+</div>

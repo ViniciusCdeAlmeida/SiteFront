@@ -1,0 +1,3 @@
+<select materialize="material_select" [materializeSelectOptions]="cats">
+    <option *ngFor="let cats of categories" [value]="cats.id" #value >{{cats.id}}</option>    
+</select>

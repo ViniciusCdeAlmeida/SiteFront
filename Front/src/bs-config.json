@@ -1,0 +1,5 @@
+{
+    "port": 8000,
+    "files": ["/home/vinicius/Documents/Site-firebase/**/*.{html,htm,css,js}"],
+    "server": { "baseDir": "/home/vinicius/Documents/Site-firebase" }
+  }
