@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev": "lite-server",
-    "heroku-postbuild": "ng build --aot -prod"
+    "postinstall": "ng build --aot -prod"
   },
   "engines": {
     "node": "8.7.0",
