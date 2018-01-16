@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import {Category} from '../../../shared/category.model'
 import {StorageService} from '../../../shared/service/storage.service';
-import {CategoryService} from '../../category.service';
+// import {CategoryService} from '../../category.service';
 
 @Component({
   selector: 'app-category-select',
@@ -15,22 +15,18 @@ import {CategoryService} from '../../category.service';
 export class CategorySelectComponent implements OnInit {
 
   constructor(
-    private categoryService: CategoryService,
+    // private categoryService: CategoryService,
     private storageService: StorageService,
     private route: ActivatedRoute, 
   ) {}
 
-  private categories: Category[] = [];
-
-  @Output('value') value2: EventEmitter<number> = new EventEmitter<number>();
-
-  @ViewChild('value') value: ElementRef;
+  categories: Category[] = [];
 
   ngOnInit() {
 
     this.route.params.subscribe((params: Params) => {
       this.storageService.getCategories()});
-    this.categoryService.categoryChanged.subscribe(
+    this.storageService.categoryChanged.subscribe(
       (cats: Category[]) => {
         this.categories = cats;
       });

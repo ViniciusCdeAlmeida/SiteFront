@@ -3,7 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import {Art} from '../../shared/art.model'
 import {StorageService} from '../../shared/service/storage.service'
-import {ArtService} from '../../shared/service/art.service'
+// import {ArtService} from '../../shared/service/art.service'
 
 @Component({
   selector: 'app-art-detail',
@@ -18,7 +18,7 @@ export class ArtDetailComponent implements OnInit {
   artID:number
 
   constructor(
-    private artService: ArtService,
+    // private artService: ArtService,
     private storageService: StorageService,
     private route: ActivatedRoute,
     private router: Router
@@ -31,7 +31,7 @@ export class ArtDetailComponent implements OnInit {
       this.storageService.getArt(this.artID).subscribe(
           art => this.art = art);
     });
-  }
+  } 
 
   onEditArt(){
 

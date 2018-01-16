@@ -45,8 +45,7 @@ import { CategorySelectComponent } from './category/category-list/category-selec
     DropdownDirective,
     ArtItemComponent,
     CategoryItemComponent,
-    CategorySelectComponent,
-    FileSelectDirective
+    CategorySelectComponent
   ],
   imports: [
     BrowserModule,
