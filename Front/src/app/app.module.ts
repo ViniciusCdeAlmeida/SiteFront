@@ -55,7 +55,7 @@ import { CategoryDetailComponent } from './category/category-detail/category-det
     HttpModule
     
   ],
-  providers: [ArtService, /* StorageService, */ CategoryService, Angular2TokenService],
+  providers: [ArtService, CategoryService, Angular2TokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
