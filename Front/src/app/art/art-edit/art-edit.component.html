@@ -50,8 +50,7 @@
                     [materializeSelectOptions]="categories" 
                     id="category" 
                     name= "category" 
-                    formControlName="category"
-                    >
+                    formControlName="category">
                   <option *ngFor="let cats of categories" [value]="cats.id">{{cats.title}}</option>    
               </select>
           </div>                

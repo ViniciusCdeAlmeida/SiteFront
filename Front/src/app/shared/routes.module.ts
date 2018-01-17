@@ -10,6 +10,7 @@ import { ArtEditComponent } from '../art/art-edit/art-edit.component';
 import { ArtListComponent } from '../art/art-list/art-list.component';
 import { CategoryEditComponent } from '../category/category-edit/category-edit.component';
 import { CategoryListComponent } from '../category/category-list/category-list.component';
+import { CategoryDetailComponent } from '../category/category-detail/category-detail.component';
 import { HeaderComponent } from '../header/header.component';
 import { LoginComponent } from '../user/login/login.component';
 import { ArtDetailComponent } from '../art/art-detail/art-detail.component';
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
   { path: 'category', component: CategoryComponent, /* canActivate: [AuthGuard], */ 
 children: [
     { path: 'new', component: CategoryEditComponent },
+    { path: ':id', component: CategoryDetailComponent },
     { path: ':id/edit', component: CategoryEditComponent },
   ] 
 },

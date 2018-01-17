@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import {StorageService} from '../../shared/service/storage.service';
 import {Category} from '../../shared/category.model';
-// import {CategoryService} from '../category.service';
+import {CategoryService} from '../category.service';
 
 @Component({
   selector: 'app-category-list',
@@ -22,13 +22,14 @@ export class CategoryListComponent implements OnInit, OnDestroy {
     private router: Router, 
     private route: ActivatedRoute, 
     private storageService: StorageService,
-    /* private categoryService: CategoryService */) { }
+    private categoryService: CategoryService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.storageService.getCategories()});
-    this.storageService.categoryChanged.subscribe(
+    this.categoryService.categoryChanged.subscribe(
       (cats: Category[]) => {this.categories = cats;});
+    // this.categories = this.categoryService.getCategories();
   }
 
   onNewCategory() {

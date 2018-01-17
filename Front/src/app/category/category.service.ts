@@ -20,7 +20,11 @@ private categories: Category[] =[]
   }
 
   getCategory(index: number) {
-    return this.categories[index];
+    return this.categories.filter(found => 
+      {
+        if(found.id == index)
+          return found
+      });
   }
 
   addCategory(category: Category) {

@@ -4,7 +4,7 @@ import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 import {StorageService} from '../../shared/service/storage.service'
 import {Category} from '../../shared/category.model'
-// import {CategoryService} from '../category.service'
+import {CategoryService} from '../category.service'
 
 @Component({
   selector: 'app-category-edit',
@@ -17,52 +17,53 @@ export class CategoryEditComponent implements OnInit {
   id: number;
   editMode = false;
   categoryForm: FormGroup;
+  
 
   category: Category = new Category;
 
   constructor(
     private router: Router, 
     private route: ActivatedRoute,
-    // private categoryService: CategoryService,
+    private categoryService: CategoryService,
     private storageService: StorageService) { }
 
   ngOnInit() {
 
-    this.route.params
-        .subscribe(
-          (params: Params) => {
-            this.id = +params['id'];
-            this.editMode = params['id'] != null;
-            this.initForm();
-          }
-        );
+    this.route.params.subscribe((params: Params) => {
+      this.id = +params['id'];
+      this.editMode = params['id'] != null;
+      this.initForm();});
   }
 
-  onBackPage(){
+  onCancel(){
     this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   save(){
 
     if (this.editMode) {
-        this.storageService.updateLocalCategory(this.id, this.categoryForm.value);
+        this.categoryService.updateCategory(this.id, this.categoryForm.value);
       } else {
-        this.storageService.addLocalCategory(this.categoryForm.value);
-        this.storageService.addCategory(this.categoryForm.value).subscribe(data => this.categoryForm.value);{}
+        this.categoryService.addCategory(this.categoryForm.value);
+        this.storageService.addCategory(this.categoryForm.value).
+        subscribe(data => this.categoryForm.value);{}
       }
-      this.onBackPage();
+      this.onCancel();
   }
 
   private initForm() {
     let categoryTitle = '';
+    let catID: number;
 
     if (this.editMode) {
-      const category = this.storageService.getLocalCategory(this.id);
-      categoryTitle = category.title;
+      const category = this.categoryService.getCategory(this.id);
+      categoryTitle = category[0].title;
+      catID = category[0].id;
     }
 
     this.categoryForm = new FormGroup({
-      'title': new FormControl(categoryTitle, Validators.required)
+      'title': new FormControl(categoryTitle, Validators.required),
+      'id': new FormControl(catID, Validators.required)
     });
   }
 

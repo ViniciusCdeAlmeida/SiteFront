@@ -1,6 +1,7 @@
 <!-- [routerLink]="[art.id]" -->
 <!-- [href] = "'http://192.168.182.131:3000' + art.picture.url" -->
-<a routerLinkActive="active"
+<a 
+routerLinkActive="active" 
 [routerLink]="[art.id]">
   <!-- <div class="pull-left">
   <h4 class="list-group-item-heading">{{ art.title }}</h4>
@@ -12,5 +13,5 @@
     materialize="materialbox" 
     height=350 
     [attr.data-caption]="art.description" 
-    [src]="'http://192.168.182.131:3000' + art.picture.url">
+    [src]="art.picture.url">
 </a>
