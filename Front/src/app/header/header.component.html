@@ -27,8 +27,9 @@
            
             <li routerLinkActive="active"><a routerLink="/art">Gallery</a></li>
             <li *ngIf="auth.canActivate()" routerLinkActive="active"><a routerLink="/category">Categories</a></li> 
-            <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
-            
+            <li *ngIf="!tokenGuard.userSignedIn()" routerLinkActive="active"><a routerLink="/login">Login</a></li>
+            <li *ngIf="tokenGuard.userSignedIn()"><a routerLink="/home" (click)="tokenGuard.signOut()">Logout</a></li>
+                        
           </ul>
           <!-- <ul class="right side-nav" id="mobile-demo">
             <li routerLinkActive="active"><a routerLink="/art">Gallery</a></li>
