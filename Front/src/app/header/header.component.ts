@@ -8,9 +8,9 @@ import { AuthGuard } from "../user/guards/user.guard";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  guard: AuthGuard
   constructor(
-    private guard: AuthGuard
+    guard: AuthGuard
   ) { }
 
   ngOnInit() {
