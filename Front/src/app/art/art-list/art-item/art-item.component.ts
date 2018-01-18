@@ -4,6 +4,8 @@ import {Observable} from 'rxjs';
 
 import {Art} from '../../../shared/art.model'
 
+
+
 @Component({
   selector: 'app-art-item',
   templateUrl: './art-item.component.html',
@@ -11,7 +13,8 @@ import {Art} from '../../../shared/art.model'
 })
 export class ArtItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { }
 
   @Input() art: Art;
   @Input() index: number;

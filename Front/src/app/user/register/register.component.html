@@ -1,0 +1,49 @@
+<form (ngSubmit)="onSignUpSubmit()" #f="ngForm" >
+  
+    <div class="row">
+  
+      <div class="input-field col s12">
+        <input placeholder="Email" id="email"
+          type="email"
+          required
+          name='email'
+          [(ngModel)]="signUpUser.email"
+          class="validate">
+      </div>
+  
+      <div class="input-field col s12">
+        <input placeholder="Password Minimum 8 Characters" id="password"
+          type="password"
+          required
+          name='password'
+          [(ngModel)]="signUpUser.password"
+          class="validate">
+      </div>
+  
+      <div class="input-field col s12">
+        <input placeholder="Password confirmation" id="password_confirmation"
+          type="password"
+          required
+          name='password_confirmation'
+          [(ngModel)]="signUpUser.passwordConfirmation"
+          class="validate">
+      </div>
+  
+      <span *ngIf="signUpUser.password != signUpUser.passwordConfirmation"
+          style="color:red">Passwords must match
+      </span>
+  
+      <div class="col s12">
+  
+        <button type="submit"
+                [disabled]="!(f.valid) || !(signUpUser.password == signUpUser.passwordConfirmation)"
+                class="waves-effect waves-light btn blue right">
+          Sign up
+        </button>
+  
+      </div>
+  
+    </div>
+    <a routerLink = "/home" class="waves-effect waves-light btn blue right">Back to Main Page</a>
+  
+  </form>

@@ -4,8 +4,10 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { Art } from '../../shared/art.model';
 import { ArtService } from '../../shared/service/art.service';
-import {StorageService} from '../../shared/service/storage.service'
-import {MaterializeDirective} from "angular2-materialize";
+import { StorageService } from '../../shared/service/storage.service'
+import { MaterializeDirective } from "angular2-materialize";
+
+import { AuthGuard } from "../../user/guards/user.guard";
 
 @Component({
   selector: 'app-art-list',
@@ -18,11 +20,13 @@ export class ArtListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   id: number;
 
-  constructor(private router: Router,
-              private route: ActivatedRoute,
-              private storageService: StorageService,
-              private artService: ArtService) {
-  }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private storageService: StorageService,
+    private artService: ArtService,
+    private guard: AuthGuard
+    ){}
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {

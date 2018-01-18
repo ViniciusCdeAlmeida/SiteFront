@@ -5,11 +5,10 @@
 </div>
 <hr> -->
 
-<div class="container-fluid">
+<div *ngIf="guard.hideElement()" class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <button type="button" class="btn btn-success btn-lg" style="margin-top:80px" (click)="onNewArt()">New Art
-            
+        <button type="button" class="btn btn-success btn-lg" style="margin-top:10px" (click)="onNewArt()">New Art
         </button>
       </div>
     </div>

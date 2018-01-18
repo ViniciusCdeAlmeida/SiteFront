@@ -1,23 +1,43 @@
 <ul id="dropdown1" class="dropdown-content">
-  <li routerLinkActive="active"><a routerLink="/art">Gallery</a></li>
-  <li routerLinkActive="active"><a routerLink="/category">Categories</a></li> 
-  <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+    <li routerLinkActive="active"><a routerLink="/art">Gallery</a></li>
+    <li routerLinkActive="active"><a routerLink="/category">Categories</a></li> 
+    <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
 </ul>
-  <div id="navbar" class="navbar-fixed scrollspy">
-    <nav  class="white">
-      <div class="nav-wrapper container">
-        <div class="container"> <a routerLink="/home" class="brand-logo">Logo</a></div>
-
-        <a data-activates="mobile-demo" class="button-collapse">
-          <i class="mdi-navigation-menu">
-            <a class="dropdown-button btn" data-activates="dropdown1" materialize="dropdown">Menu</a></i></a>
-        <ul class="right hide-on-med-and-down">
+<!-- <nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Logo</a>
+    <ul class="right hide-on-med-and-down">
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">
+            Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li routerLinkActive="active"><a routerLink="/art">Art</a></li>
+      <li routerLinkActive="active"><a routerLink="/category">Categories</a></li> 
+      <li routerLinkActive="active"><a routerLink="/login">Login</a></li>         
+    </ul>
+  </div>
+</nav> -->
+    <div id="navbar" class="navbar-fixed scrollspy">
+      <nav  class="white">
+        <div class="nav-wrapper container">
+          <div class="container"> <a routerLink="/home" class="brand-logo">Logo</a></div>
          
-          <li routerLinkActive="active"><a routerLink="/art">Gallery</a></li>
-          <li routerLinkActive="active"><a routerLink="/category">Categories</a></li> 
-          <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
-
-        </ul>
+          <a data-activates="mobile-demo" class="button-collapse">
+            <i class="mdi-navigation-menu">
+              <a class="dropdown-button btn" data-activates="dropdown1" materialize="dropdown">Menu</a></i></a>
+          <ul class="right hide-on-med-and-down">
+           
+            <li routerLinkActive="active"><a routerLink="/art">Gallery</a></li>
+            <li *ngIf="guard.canActivate()"  routerLinkActive="active"><a routerLink="/category">Categories</a></li> 
+            <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+            
+            
+           
+          </ul>
+          <!-- <ul class="right side-nav" id="mobile-demo">
+            <li routerLinkActive="active"><a routerLink="/art">Gallery</a></li>
+            <li routerLinkActive="active"><a routerLink="/category">Categories</a></li> 
+            <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+            <a class="dropdown-button btn" data-activates="dropdown1" materialize="dropdown">Drop Me!</a>
+          </ul> -->
+        </div>
+      </nav>
       </div>
-    </nav>
-    </div>

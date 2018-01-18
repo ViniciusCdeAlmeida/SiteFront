@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Angular2TokenService } from 'angular2-token';
 
+import { AuthGuard } from './user/guards/user.guard'
+
 import { AppComponent } from './app.component';
 import { ArtComponent } from './art/art.component';
 import { UserComponent } from './user/user.component';
@@ -26,6 +28,7 @@ import { StorageService } from './shared/service/storage.service';
 import { CategoryService } from './category/category.service';
 import { CategoryItemComponent } from './category/category-list/category-item/category-item.component';
 import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
+import { RegisterComponent } from './user/register/register.component';
 
 
 @NgModule({
@@ -45,17 +48,19 @@ import { CategoryDetailComponent } from './category/category-detail/category-det
     DropdownDirective,
     ArtItemComponent,
     CategoryItemComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RoutesModule,MaterializeModule,
+    RoutesModule,
+    MaterializeModule,
     HttpModule
     
   ],
-  providers: [ArtService, CategoryService, Angular2TokenService],
+  providers: [ArtService, CategoryService, Angular2TokenService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

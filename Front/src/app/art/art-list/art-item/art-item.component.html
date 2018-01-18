@@ -9,9 +9,9 @@ routerLinkActive="active"
   <p class="list-group-item-text">{{ art.id }}</p>
 </div> -->
   <img 
-    class="materialboxed row col-sm-4" 
-    materialize="materialbox" 
-    height=350 
+    class="materialboxed row col-sm-4 img-responsive" 
+    materialize="materialbox"
+    style="margin-top:20px" 
     [attr.data-caption]="art.description" 
     [src]="art.picture.url">
 </a>
