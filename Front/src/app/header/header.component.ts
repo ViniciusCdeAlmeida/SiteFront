@@ -8,10 +8,11 @@ import { AuthGuard } from "../user/guards/user.guard";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  guard: AuthGuard
   constructor(
-    guard: AuthGuard
+   private guard: AuthGuard
   ) { }
+
+  auth = this.guard
 
   ngOnInit() {
   }

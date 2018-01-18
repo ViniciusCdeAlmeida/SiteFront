@@ -19,15 +19,14 @@ export class ArtListComponent implements OnInit, OnDestroy {
   arts: Art[];
   subscription: Subscription;
   id: number;
-
-  guard: AuthGuard
+  auth = this.guard
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private storageService: StorageService,
     private artService: ArtService,
-    guard: AuthGuard
+    private guard: AuthGuard
     ){}
 
   ngOnInit() {
