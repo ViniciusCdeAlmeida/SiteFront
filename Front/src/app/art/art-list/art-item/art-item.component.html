@@ -1,11 +1,11 @@
 <!-- [routerLink]="[art.id]" -->
 <!-- [href] = "'http://192.168.182.131:3000' + art.picture.url" -->
 <a 
-  *ngIf="tokenGuard.userSignedIn()" 
+  *ngIf="auth.hideElement()"
   routerLinkActive="active" 
   [routerLink]="[art.id]">
 <a 
- *ngIf="!tokenGuard.userSignedIn()"
+  *ngIf="!auth.hideElement()"
   routerLinkActive="active"
   [href] = "art.picture.url">
   <!-- <div class="pull-left">

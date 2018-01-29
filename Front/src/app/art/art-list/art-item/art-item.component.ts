@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output} from '@angular/core';
 import {Observable} from 'rxjs';
 
-import {Art} from '../../../shared/art.model'
-import { Angular2TokenService } from "angular2-token";
+import {Art} from '../../../shared/art.model';
 
+import { AuthGuard } from "../../../user/guards/user.guard";
 
 @Component({
   selector: 'app-art-item',
@@ -13,9 +13,10 @@ import { Angular2TokenService } from "angular2-token";
 export class ArtItemComponent implements OnInit {
 
   constructor(
-    public tokenGuard: Angular2TokenService
+    private guard: AuthGuard
   ) { }
 
+  auth = this.guard;
   @Input() art: Art;
   @Input() index: number;
   
