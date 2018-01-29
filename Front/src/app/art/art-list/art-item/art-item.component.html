@@ -4,10 +4,6 @@
   *ngIf="auth.hideElement()"
   routerLinkActive="active" 
   [routerLink]="[art.id]">
-<a 
-  *ngIf="!auth.hideElement()"
-  routerLinkActive="active"
-  [href] = "art.picture.url">
   <!-- <div class="pull-left">
   <h4 class="list-group-item-heading">{{ art.title }}</h4>
   <p class="list-group-item-text">{{ art.description }}</p>
@@ -19,5 +15,4 @@
     style="margin-top:20px" 
     [attr.data-caption]="art.description" 
     [src]="art.picture.url">
-  </a>
 </a>
