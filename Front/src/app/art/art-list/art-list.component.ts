@@ -20,6 +20,7 @@ export class ArtListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   id: number;
   auth = this.guard
+  page:any
 
   constructor(
     private router: Router,

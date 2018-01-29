@@ -10,9 +10,17 @@
 <div class="row">
   <div class="col-sm-12">
     <app-art-item
-      *ngFor="let artEl of arts; let i = index"
+      *ngFor="let artEl of arts | paginate: {itemsPerPage: 6, currentPage: page}; let i = index"
       [art]="artEl"
       [index]= "i">
     </app-art-item>
+  </div>
+  <div class="has-text-centered">
+    <pagination-controls 
+    (pageChange)="page = $event"
+    previousLabel="Anterior"
+    nextLabel="Proximo"
+    autoHide="true">
+  </pagination-controls>
   </div>
 </div>

@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { MaterializeModule, MaterializeDirective } from 'angular2-materialize';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { Angular2TokenService } from 'angular2-token';
+import { MaterializeModule, MaterializeDirective } from 'angular2-materialize';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AuthGuard } from './user/guards/user.guard'
-
 import { AppComponent } from './app.component';
 import { ArtComponent } from './art/art.component';
 import { UserComponent } from './user/user.component';
@@ -57,8 +57,8 @@ import { RegisterComponent } from './user/register/register.component';
     ReactiveFormsModule,
     RoutesModule,
     MaterializeModule,
-    HttpModule
-    
+    HttpModule,
+    NgxPaginationModule
   ],
   providers: [ArtService, CategoryService, Angular2TokenService, AuthGuard],
   bootstrap: [AppComponent]
