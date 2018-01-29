@@ -1,4 +1,4 @@
-<ul id="dropdown1" class="dropdown-content">
+<ul id="dropdown1" class="dropdown-content" style="margin-left:-40px">
   <li routerLinkActive="active"><a routerLink="/art">Gallery</a></li>
   <li *ngIf="auth.canActivate()" routerLinkActive="active"><a routerLink="/category">Categories</a></li>
   <li *ngIf="!tokenGuard.userSignedIn()" routerLinkActive="active"><a routerLink="/login">Login</a></li>
@@ -11,7 +11,7 @@
 
       <a data-activates="mobile-demo" class="button-collapse">
             <i class="mdi-navigation-menu">
-              <a class="dropdown-button btn" data-activates="dropdown1" materialize="dropdown">Menu</a></i>
+              <a class="dropdown-button btn" data-activates="dropdown1" materialize="dropdown" style="margin-left:-40px">Menu</a></i>
       </a>
       <ul class="right hide-on-med-and-down">
 
