@@ -10,12 +10,16 @@
       <div class="container"> <a routerLink="/home" class="brand-logo">Logo</a></div>
 
       <a data-activates="mobile-demo" class="button-collapse">
-            <i class="mdi-navigation-menu">
-              <a class="dropdown-button btn" data-activates="dropdown1" materialize="dropdown" style="margin-left:-40px">Menu</a></i>
+          <i class="mdi-navigation-menu">
+            <a class="dropdown-trigger" 
+            data-activates="dropdown1" 
+            materialize="dropdown" 
+            style="margin-left:-40px"><i class="material-icons" style="margin-top:-55px;margin-left:-30px;color:black">menu</i></a></i>
+            
       </a>
       <ul class="right hide-on-med-and-down">
-
-        <li routerLinkActive="active"><a routerLink="/art">Gallery</a></li>
+          <!-- <i class="material-icons">visibility</i> -->
+        <li routerLinkActive="active"><a routerLink="/art">Gallery </a></li>
         <li *ngIf="auth.canActivate()" routerLinkActive="active"><a routerLink="/category">Categories</a></li>
         <li *ngIf="!tokenGuard.userSignedIn()" routerLinkActive="active"><a routerLink="/login">Login</a></li>
         <li *ngIf="tokenGuard.userSignedIn()"><a routerLink="/home" (click)="tokenGuard.signOut()">Logout</a></li>
