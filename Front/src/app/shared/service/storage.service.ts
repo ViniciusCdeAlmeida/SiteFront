@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 
 import { Art } from '../art.model';
 import { Category } from '../category.model';
-import { CategoryService } from '../../category/category.service';
+import { CategoryService } from '../../shared/service/category.service';
 import { ArtService } from './art.service'
 
 @Injectable()

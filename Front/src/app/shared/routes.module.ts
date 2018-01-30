@@ -25,7 +25,7 @@ const appRoutes: Routes = [
   { path: 'art/list', component: ArtListComponent},
   { path: 'category', component: CategoryListComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent/* ,canActivate: [AuthGuard] */},
+  { path: 'register', component: RegisterComponent,canActivate: [AuthGuard]},
   { path: 'art', component: ArtComponent, 
   children: [
     { path: 'new', component: ArtEditComponent ,canActivate: [AuthGuard]},

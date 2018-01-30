@@ -4,7 +4,7 @@ import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 import {StorageService} from '../../shared/service/storage.service'
 import {Category} from '../../shared/category.model'
-import {CategoryService} from '../category.service'
+import {CategoryService} from '../../shared/service/category.service'
 
 @Component({
   selector: 'app-category-edit',

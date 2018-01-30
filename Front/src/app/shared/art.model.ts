@@ -5,5 +5,4 @@ export class Art{
         public description: string;
         public category: string;
         public picture: string|any;
-        // public multipic: string|any;
     }

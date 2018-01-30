@@ -25,7 +25,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { ArtItemComponent } from './art/art-list/art-item/art-item.component';
 import { ArtService } from './shared/service/art.service';
 import { StorageService } from './shared/service/storage.service';
-import { CategoryService } from './category/category.service';
+import { CategoryService } from './shared/service/category.service';
 import { CategoryItemComponent } from './category/category-list/category-item/category-item.component';
 import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 import { RegisterComponent } from './user/register/register.component';

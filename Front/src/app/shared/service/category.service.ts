@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-import { Category } from '../shared/category.model';
+import { Category } from '../category.model';
 
 @Injectable()
 export class CategoryService {

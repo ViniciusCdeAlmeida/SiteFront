@@ -18,15 +18,16 @@ export class RegisterComponent implements OnInit {
 
   @Output() onFormResult = new EventEmitter<any>();
 
-  constructor(private tokenAuthSerivce:Angular2TokenService, private router: Router) { }
+  constructor(
+    private tokenAuthSerivce:Angular2TokenService,
+    private router: Router) { }
 
   ngOnInit() {}
 
 
   onSignUpSubmit(){
-    // console.log(this.signUpUser);
     this.tokenAuthSerivce.registerAccount(this.signUpUser).subscribe(
-        (res) => {this.signUpUser})
+        (res) => this.signUpUser)
     this.router.navigate(['/home']);
   }  
 

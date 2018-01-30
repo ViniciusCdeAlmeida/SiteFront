@@ -9,29 +9,28 @@ import {Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-
   signInUser = {
     email: '',
     password: ''
   };
 
   @Output() onFormResult = new EventEmitter<any>();
-  constructor(private tokenAuthSerivce:Angular2TokenService, private router: Router, private route: ActivatedRoute){};
 
-  ngOnInit() {
-  }
+  constructor(
+    private tokenAuthSerivce:Angular2TokenService, 
+    private router: Router, 
+    private route: ActivatedRoute){};
+
+  ngOnInit() {}
 
   onSignInSubmit(){
     
     this.tokenAuthSerivce.signIn(this.signInUser).subscribe(
-    
-      res => { this.signInUser})
-      this.onCancel();
-    
-}
+      (res) => this.signInUser)
+    this.onCancel();    
+  }
 
-onCancel() {
-  this.router.navigate(['../'], { relativeTo: this.route });
-}
+  onCancel() {
+    this.router.navigate(['../'], { relativeTo: this.route });
+  }
 }

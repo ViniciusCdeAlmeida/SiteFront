@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -15,7 +15,7 @@ import { AuthGuard } from "../../user/guards/user.guard";
   styleUrls: ['./art-list.component.css'],
   providers: [StorageService]
 })
-export class ArtListComponent implements OnInit, OnDestroy {
+export class ArtListComponent implements OnInit{
   arts: Art[];
   subscription: Subscription;
   id: number;
@@ -40,9 +40,5 @@ export class ArtListComponent implements OnInit, OnDestroy {
 
   onNewArt() {
     this.router.navigate(['new'], {relativeTo: this.route});
-  }
-
-  ngOnDestroy() {
-    // this.subscription.unsubscribe();
   }
 }

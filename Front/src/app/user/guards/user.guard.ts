@@ -1,4 +1,4 @@
-import { Injectable }     from '@angular/core';
+import { Injectable } from '@angular/core';
 import { CanActivate, Router } from "@angular/router";
 import { Angular2TokenService } from "angular2-token";
 
@@ -11,7 +11,8 @@ export class AuthGuard implements CanActivate {
   canActivate() {
     if(this.authTokenService.userSignedIn()){
       return true;
-    }else{
+    }
+    else{
       return false;
     }
   }
@@ -19,7 +20,8 @@ export class AuthGuard implements CanActivate {
   hideElement(){
     if(this.authTokenService.userSignedIn()){
       return true;
-    }else{
+    }
+    else{
       return false;
     }
   }

@@ -5,7 +5,7 @@ import { Response } from '@angular/http'
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { CategoryService } from '../../category/category.service'
+import { CategoryService } from '../../shared/service/category.service'
 import { ArtService } from '../../shared/service/art.service';
 import { StorageService } from '../../shared/service/storage.service'
 import { Art } from '../../shared/art.model'
