@@ -6,7 +6,7 @@ import { Art } from '../../shared/art.model';
 import { ArtService } from '../../shared/service/art.service';
 import { StorageService } from '../../shared/service/storage.service'
 import { MaterializeDirective } from "angular2-materialize";
-import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation,NgxGalleryLayout,NgxGalleryImageSize } from 'ngx-gallery';
 
 import { AuthGuard } from "../../user/guards/user.guard";
 
@@ -23,7 +23,9 @@ export class ArtListComponent implements OnInit {
   auth = this.guard
   page: any
   artImg = []
+
   idImg:number
+  urlImg:string
 
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
@@ -52,22 +54,24 @@ export class ArtListComponent implements OnInit {
           url: this.arts[index].id
         })
       }
-      console.log(this.artImg[0].url)
-      this.idImg = this.artImg[0].url
     });
     this.galleryOptions = [
       {
         height: '1400px',
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide,
-        width: '1400px',
+        layout: NgxGalleryLayout.ThumbnailsTop,
+        width: '100%',
         previewCloseOnClick: true,
         previewCloseOnEsc: true,
         previewKeyboardNavigation: true,
         imageArrowsAutoHide: true,
         previewFullscreen: true,
-        imageSize: "contain",
-        previewZoom: true
+        imageSwipe: true, 
+        thumbnailsSwipe: true, 
+        previewSwipe: true,
+        imageSize: NgxGalleryImageSize.Contain,
+        previewZoom: true, thumbnailsPercent: 90, thumbnailsMargin: 0, thumbnailMargin: 0
       },
       // max-width 800
       {
@@ -86,11 +90,25 @@ export class ArtListComponent implements OnInit {
       }
     ];
   }
-  // .parentNode.children["0"].currentSrc
-  // .parentNode.childNodes[1].currentSrc
+
+  idFound(url){
+    this.artImg.filter(found => {
+      if(found == url)
+      console.log(found)
+    })
+  }
+
   imgClick($event){
-    let file = event.srcElement.lastChild.parentNode.childNodes[1].attributes[2].nodeValue;
-    console.log(file)
+    if (event.srcElement.lastChild){
+      let file = event.srcElement.lastChild.parentNode.childNodes[1].attributes[2].nodeValue;
+      this.urlImg = file
+
+      this.artImg.filter((found,i) => {
+        if(found.small == file){
+          this.urlImg = found.url
+        }
+      })
+    }
   }
 
   onNewArt() {
