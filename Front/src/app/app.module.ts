@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Angular2TokenService } from 'angular2-token';
 import { MaterializeModule, MaterializeDirective } from 'angular2-materialize';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxGalleryModule } from 'ngx-gallery';
 
 import { AuthGuard } from './user/guards/user.guard'
 import { AppComponent } from './app.component';
@@ -58,7 +59,8 @@ import { RegisterComponent } from './user/register/register.component';
     RoutesModule,
     MaterializeModule,
     HttpModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxGalleryModule
   ],
   providers: [ArtService, CategoryService, Angular2TokenService, AuthGuard],
   bootstrap: [AppComponent]

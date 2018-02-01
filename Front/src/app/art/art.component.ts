@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit} from '@angular/core';
+import { Art } from '../shared/art.model';
 @Component({
   selector: 'app-art',
   templateUrl: './art.component.html',
@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class ArtComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit() {
   }
 

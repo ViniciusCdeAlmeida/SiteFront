@@ -9,6 +9,11 @@
 
 <div class="row">
   <div class="col-sm-12">
+    <ngx-gallery 
+    [options]="galleryOptions" 
+    [images]="artImg" 
+    (click)= imgClick($event) 
+    [routerLink] = "[idImg]"></ngx-gallery>      
     <app-art-item
       *ngFor="let artEl of arts | paginate: {itemsPerPage: 6, currentPage: page}; let i = index"
       [art]="artEl"
