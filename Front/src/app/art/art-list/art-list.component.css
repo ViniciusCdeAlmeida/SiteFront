@@ -1,1 +1,13 @@
 .button{margin-top: 100 !important;}
+
+:host ngx-gallery /deep/ .ngx-gallery-preview-icons .ngx-gallery-icon {
+    font-size: 50px;
+  }
+  
+  :host ngx-gallery /deep/ .ngx-gallery-preview-icons  {
+    float: none;
+  }
+  
+  :host ngx-gallery /deep/ .ngx-gallery-preview-top  {
+    text-align: center;
+  }

@@ -57,36 +57,18 @@ export class ArtListComponent implements OnInit {
     });
     this.galleryOptions = [
       {
-        height: '1400px',
+        height: '500px',
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide,
         layout: NgxGalleryLayout.ThumbnailsTop,
         width: '100%',
-        previewCloseOnClick: true,
-        previewCloseOnEsc: true,
-        previewKeyboardNavigation: true,
         imageArrowsAutoHide: true,
         previewFullscreen: true,
         imageSwipe: true, 
         thumbnailsSwipe: true, 
         previewSwipe: true,
         imageSize: NgxGalleryImageSize.Contain,
-        previewZoom: true, thumbnailsPercent: 90, thumbnailsMargin: 0, thumbnailMargin: 0
-      },
-      // max-width 800
-      {
-        breakpoint: 500,
-        width: '100%',
-        height: '600px',
-        imagePercent: 80,
-        thumbnailsPercent: 0,
-        thumbnailsMargin: 0,
-        thumbnailMargin: 0
-      },
-      // max-width 400
-      {
-        breakpoint: 400,
-        preview: false
+        previewZoom: true, thumbnailsPercent: 90, thumbnailsMargin: 10, thumbnailMargin: 10
       }
     ];
   }
