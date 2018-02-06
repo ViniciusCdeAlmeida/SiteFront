@@ -7,7 +7,19 @@
     </div>
   </div> -->
 
-  <div class="row">
+  <div class="row mobileShow">
+    <div class="col-sm-12">
+      <ngx-gallery 
+        [options]="galleryOptionsMobile" 
+        [images]="artImg" 
+        (click) = imgClick($event)
+        style="margin: 0 auto;margin-top:20px">
+      </ngx-gallery>
+    </div>
+  </div>
+
+
+  <div class="row mobileHide">
     <div class="col-sm-12">
       <ngx-gallery 
         [options]="galleryOptions" 
@@ -17,10 +29,6 @@
       </ngx-gallery>
     </div>
   </div>
-
-
-
-
 
 
 

@@ -27,7 +27,8 @@ export class ArtListComponent implements OnInit {
   idImg:number
   urlImg:string
 
-  galleryOptions: NgxGalleryOptions[];
+  galleryOptions: NgxGalleryOptions[]; 
+  galleryOptionsMobile: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
   constructor(
@@ -58,6 +59,23 @@ export class ArtListComponent implements OnInit {
     this.galleryOptions = [
       {
         height: '1500px',
+        thumbnailsColumns: 4,
+        // imageAnimation: NgxGalleryAnimation.Slide,
+        layout: NgxGalleryLayout.ThumbnailsTop,
+        width: '100%',
+        imageArrowsAutoHide: true,
+        previewFullscreen: true,
+        previewCloseOnClick: true,
+        imageSwipe: true, 
+        thumbnailsSwipe: true, 
+        previewSwipe: true,
+        imageSize: NgxGalleryImageSize.Contain,
+        previewZoom: true, thumbnailsPercent: 90, thumbnailsMargin: 10, thumbnailMargin: 10
+      }
+    ];
+    this.galleryOptionsMobile = [
+      {
+        height: '500px',
         thumbnailsColumns: 4,
         // imageAnimation: NgxGalleryAnimation.Slide,
         layout: NgxGalleryLayout.ThumbnailsTop,
