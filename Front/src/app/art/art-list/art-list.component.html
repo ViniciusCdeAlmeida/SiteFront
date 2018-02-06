@@ -1,34 +1,12 @@
-<div *ngIf="auth.hideElement()" class="container-fluid">
+<!-- <div *ngIf="auth.hideElement()" class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <button type="button" class="btn btn-success btn-lg" style="margin-top:10px" (click)="onNewArt()">New
         </button>
       </div>
     </div>
-  </div>
-
-<!-- <div class="row">
-  <div class="col-sm-12">
-    <a [routerLink]="[urlImg]">
-      <ngx-gallery 
-        [options]="galleryOptions" 
-        [images]="artImg" 
-        (click) = imgClick($event)>
-      </ngx-gallery>
-    
-  <div class="has-text-centered">
-    <pagination-controls 
-    (pageChange)="page = $event"
-    previousLabel="Anterior"
-    nextLabel="Proximo"
-    autoHide="true">
-  </pagination-controls>
-    <app-art-item
-      *ngFor="let artEl of arts | paginate: {itemsPerPage: 6, currentPage: page}; let i = index"
-      [art]="artEl"
-      [index]= "i">
-    </app-art-item>
   </div> -->
+
   <div class="row">
     <div class="col-sm-12">
       <ngx-gallery 
@@ -39,3 +17,31 @@
       </ngx-gallery>
     </div>
   </div>
+
+
+
+
+
+
+
+  <!-- <div class="row">
+  <div class="col-sm-12">
+    <a [routerLink]="[urlImg]">
+      <ngx-gallery 
+        [options]="galleryOptions" 
+        [images]="artImg" 
+        (click) = imgClick($event)>
+      </ngx-gallery> -->
+    
+    <!-- <app-art-item
+      *ngFor="let artEl of arts | paginate: {itemsPerPage: 6, currentPage: page}; let i = index"
+      [art]="artEl"
+      [index]= "i">
+    </app-art-item>
+    <div class="has-text-centered">
+      <pagination-controls 
+      (pageChange)="page = $event"
+      previousLabel="Anterior"
+      nextLabel="Proximo"
+      autoHide="true"></pagination-controls>
+  </div> -->

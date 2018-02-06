@@ -43,7 +43,7 @@ export class ArtEditComponent implements OnInit {
       reader.onloadend = () => {
         this.image = reader.result;
         this.artForm.get('picture').setValue(this.image);
-        console.log(this.artForm.get('picture'))
+        /* console.log(this.artForm.get('picture')) */
       };
       reader.readAsDataURL(file);
     }

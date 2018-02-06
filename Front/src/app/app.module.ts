@@ -30,6 +30,7 @@ import { CategoryService } from './shared/service/category.service';
 import { CategoryItemComponent } from './category/category-list/category-item/category-item.component';
 import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 import { RegisterComponent } from './user/register/register.component';
+import { ArtEditItemComponent } from './art/art-list/art-item/art-edit-item/art-edit-item.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { RegisterComponent } from './user/register/register.component';
     ArtItemComponent,
     CategoryItemComponent,
     CategoryDetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    ArtEditItemComponent
   ],
   imports: [
     BrowserModule,

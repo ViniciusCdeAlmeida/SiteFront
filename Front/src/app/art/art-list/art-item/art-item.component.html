@@ -1,14 +1,37 @@
 <!-- [routerLink]="[art.id]" -->
 <!-- [href] = "'http://192.168.182.131:3000' + art.picture.url" -->
-<a 
+<!-- <a 
   routerLinkActive="active" 
   [routerLink]="[art.id]">
-<!-- <img 
+<img 
     class="materialboxed row col-sm-4 img-responsive" 
     materialize="materialbox"
     style="margin-top:20px" 
     [attr.data-caption]="art.description" 
     [src]="art.picture.url">
-</a> -->
-<!-- <h2>{{this.artsImg}}</h2> -->
-<!-- <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery> -->
+</a>
+<router-outlet></router-outlet>-->
+
+
+<div *ngIf="auth.hideElement()" class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-success btn-lg" style="margin-top:10px" (click)="onNewArt()">New
+      </button>
+    </div>
+  </div><router-outlet></router-outlet>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <app-art-edit-item 
+      *ngFor="let artEl of arts | paginate: {itemsPerPage: 6, currentPage: page}; let i = index" 
+      [art]="artEl"
+      [index]="i">
+    </app-art-edit-item>
+  </div>
+  <div class="has-text-centered">
+    <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Proximo" autoHide="true">
+    </pagination-controls>
+  </div>
+</div>

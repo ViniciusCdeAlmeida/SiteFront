@@ -16,6 +16,7 @@ import { LoginComponent } from '../user/login/login.component';
 import { ArtDetailComponent } from '../art/art-detail/art-detail.component';
 import { HomeComponent } from '../home/home.component';
 import { RegisterComponent } from '../user/register/register.component'
+import { ArtItemComponent } from '../art/art-list/art-item/art-item.component'
 
 import { AuthGuard } from "../user/guards/user.guard";
 
@@ -26,15 +27,15 @@ const appRoutes: Routes = [
   { path: 'category', component: CategoryListComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent,canActivate: [AuthGuard]},
-  { path: 'art', component: ArtComponent, 
+  { path: 'edit', component: ArtItemComponent,
   children: [
     { path: 'new', component: ArtEditComponent ,canActivate: [AuthGuard]},
     { path: ':id', component: ArtDetailComponent ,canActivate: [AuthGuard]},
     { path: ':id/edit', component: ArtEditComponent ,canActivate: [AuthGuard]},
-  ] 
-},
+  ]},
+  { path: 'art', component: ArtComponent},
   { path: 'category', component: CategoryComponent, canActivate: [AuthGuard], 
-children: [
+    children: [
     { path: 'new', component: CategoryEditComponent ,canActivate: [AuthGuard]},
     { path: ':id', component: CategoryDetailComponent ,canActivate: [AuthGuard]},
     { path: ':id/edit', component: CategoryEditComponent ,canActivate: [AuthGuard]},

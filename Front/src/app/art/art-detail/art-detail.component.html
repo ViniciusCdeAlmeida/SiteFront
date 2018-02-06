@@ -1,9 +1,8 @@
 <div class="row" >
   <div class="col-xs-12">
-    <div
-      class="btn-group"
-      appDropdown>
-      <button
+      <a style="cursor: pointer;" class="btn btn-primary" (click)="onEditArt()">Edit Art</a>
+      <a style="cursor: pointer;" class="btn btn-primary" (click)="deleteArt(art.id)">Delete Art</a>
+      <!-- <button
         type="button"
         class="btn btn-primary dropdown-toggle">
         Manage Art <span class="caret"></span>
@@ -11,7 +10,6 @@
       <ul class="dropdown-menu">
         <li><a style="cursor: pointer;" (click)="onEditArt()">Edit Art</a></li>
         <li><a style="cursor: pointer;" (click)="deleteArt(art.id)">Delete Art</a></li>
-      </ul>
-    </div>
+      </ul> -->
   </div>
 </div>
