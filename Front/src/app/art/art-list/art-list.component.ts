@@ -57,13 +57,14 @@ export class ArtListComponent implements OnInit {
     });
     this.galleryOptions = [
       {
-        height: '500px',
+        height: '1500px',
         thumbnailsColumns: 4,
-        imageAnimation: NgxGalleryAnimation.Slide,
+        // imageAnimation: NgxGalleryAnimation.Slide,
         layout: NgxGalleryLayout.ThumbnailsTop,
         width: '100%',
         imageArrowsAutoHide: true,
         previewFullscreen: true,
+        previewCloseOnClick: true,
         imageSwipe: true, 
         thumbnailsSwipe: true, 
         previewSwipe: true,
