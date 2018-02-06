@@ -66,6 +66,7 @@ export class ArtEditComponent implements OnInit {
   onSubmit() {
     if (this.editMode) {
       this.artService.updateArt(this.id, this.artForm.value);
+      this.artService.updateArt(this.id, this.artForm.value);
       this.storageService.updateArts(this.artForm.value).subscribe(data => this.artForm.value); { }
     } else {
       this.artService.addArt(this.artForm.value);
