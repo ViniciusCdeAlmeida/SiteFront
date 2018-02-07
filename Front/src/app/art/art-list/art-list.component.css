@@ -1,1 +1,5 @@
 .button{margin-top: 100 !important;}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: red;
+  }
