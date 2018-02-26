@@ -29,6 +29,7 @@ import { CategoryService } from './shared/service/category.service';
 import { CategoryItemComponent } from './category/category-list/category-item/category-item.component';
 import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 import { RegisterComponent } from './user/register/register.component';
+import { ArtPipePipe } from './art/art-list/art-pipe.pipe';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { RegisterComponent } from './user/register/register.component';
     ArtItemComponent,
     CategoryItemComponent,
     CategoryDetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    ArtPipePipe
   ],
   imports: [
     BrowserModule,

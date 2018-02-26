@@ -1,27 +1,52 @@
 <div *ngIf="auth.hideElement()" class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <button type="button" class="btn btn-success btn-lg" style="margin-top:10px" (click)="onNewArt()">New
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-primary btn-lg" style="margin-top:10px" (click)="onNewArt()">New
         </button>
-      </div>
     </div>
   </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+      <label for="category">Category</label>
+        <select 
+        class="browser-default" 
+        id="category" 
+        name= "category" 
+        (change)="artFilter($event.target.value)">
+          <option *ngFor="let categories of cats" [value] = "categories.id">{{categories.title}}</option>    
+        </select>
+    </div> 
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <button 
+      *ngFor="let category of cats"
+      type="button" 
+      class="waves-effect waves-green btn-flat" 
+      style="margin-top:10px; margin-left:10px; text-align:center"
+      (click) = "artFilter(category.id)"> {{category.title}}
+        </button>
+    </div>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-sm-12">
-    <app-art-item
-      *ngFor="let artEl of arts | paginate: {itemsPerPage: 3, currentPage: page}; let i = index"
-      [art]="artEl"
-      [index]= "i">
+    <app-art-item *ngFor="let artEl of arts
+     | artPipe:filteredCate:'category'
+     | paginate: {itemsPerPage: 3, currentPage: page};
+     let i = index" 
+     [art]="artEl" 
+     [index]="i"
+     >
     </app-art-item>
   </div>
-  <div class="has-text-centered" style = "text-align: center">
-    <pagination-controls 
-    class="my-pagination"
-    (pageChange)="page = $event"
-    previousLabel="Anterior"
-    nextLabel="Proximo"
-    autoHide="true">
-  </pagination-controls>
+  <div class="has-text-centered" style="text-align: center">
+    <pagination-controls class="my-pagination" (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Proximo" autoHide="true">
+    </pagination-controls>
   </div>
 </div>

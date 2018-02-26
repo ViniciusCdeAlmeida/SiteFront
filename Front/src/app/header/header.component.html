@@ -18,7 +18,6 @@
             
       </a>
       <ul class="right hide-on-med-and-down">
-          <!-- <i class="material-icons">visibility</i> -->
         <li routerLinkActive="active"><a routerLink="/art">Gallery </a></li>
         <li *ngIf="auth.canActivate()" routerLinkActive="active"><a routerLink="/category">Categories</a></li>
         <li *ngIf="!tokenGuard.userSignedIn()" routerLinkActive="active"><a routerLink="/login">Login</a></li>

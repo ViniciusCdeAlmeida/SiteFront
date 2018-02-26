@@ -31,6 +31,7 @@ const appRoutes: Routes = [
     { path: 'new', component: ArtEditComponent ,canActivate: [AuthGuard]},
     { path: ':id', component: ArtDetailComponent ,canActivate: [AuthGuard]},
     { path: ':id/edit', component: ArtEditComponent ,canActivate: [AuthGuard]},
+    { path: ':id/filter', component: ArtEditComponent ,canActivate: [AuthGuard]},
   ] 
 },
   { path: 'category', component: CategoryComponent, canActivate: [AuthGuard], 
