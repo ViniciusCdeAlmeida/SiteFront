@@ -20,20 +20,6 @@
     </div> 
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <button 
-      *ngFor="let category of cats"
-      type="button" 
-      class="waves-effect waves-green btn-flat" 
-      style="margin-top:10px; margin-left:10px; text-align:center"
-      (click) = "artFilter(category.id)"> {{category.title}}
-        </button>
-    </div>
-  </div>
-</div>
-
 <div class="row">
   <div class="col-sm-12">
     <app-art-item *ngFor="let artEl of arts
