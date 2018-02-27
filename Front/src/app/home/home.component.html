@@ -153,17 +153,24 @@
 
     <div class="row">
 
-      <form class="col s8">
-
+      <form class="col s8" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div class="row">
           <div class="input-field col s6">
-            <input id="name" type="text" class="validate">
-            <label for="name">Your Name</label>
+              <input
+              type="text"
+              id="name"
+              class="form-control"
+              formControlName="name">
+              <label for="name">Your Name</label>
           </div>
 
 
           <div class="input-field col s6">
-            <input id="email" type="email" class="validate">
+            <input 
+            id="email" 
+            type="email" 
+            class="validate form-control"
+            formControlName="email">
             <label for="email">Your Email</label>
           </div>
         </div>
@@ -171,21 +178,34 @@
 
         <div class="row">
           <div class="input-field col s12">
-            <input id="message-sub" type="email" class="validate">
-            <label for="message-sub">Message Subject</label>
+            <input 
+            id="messageSubs" 
+            type="text" 
+            class="validate form-control"
+            formControlName="messageSub">
+            <label for="messageSub">Message subject</label>
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s12">
-            <textarea id="text_area" class="materialize-textarea"></textarea>
-            <label for="text_area">Your Message</label>
+            <textarea 
+            id="text" 
+            class="materialize-textarea form-control"
+            formControlName="text">
+          </textarea>
+            <label for="text">Your Message</label>
           </div>
         </div>
 
 
         <div>
-          <a class="waves-effect waves-light btn purple lighten-1">Send Message<i class="mdi-content-send right"></i></a>
+            <button
+            type="submit"
+            class="waves-effect waves-light btn purple lighten-1"
+            (click)="onCancel()"
+            >Send Message</button>
+          <!-- <a class="waves-effect waves-light btn purple lighten-1" (click)="onCancel()">Send Message<i class="mdi-content-send right"></i></a> -->
         </div>
       </form>
     </div>
