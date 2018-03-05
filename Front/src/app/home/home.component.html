@@ -154,15 +154,6 @@
     <div class="row">
 
       <form class="col s8" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-        <!-- <div class="row">
-          <div class="input-field col s6">
-              <input
-              type="text"
-              id="name"
-              class="form-control"
-              formControlName="name">
-              <label for="name">Your Name</label>
-          </div> -->
 
         <div class="row">
           <div class="input-field col s12">
@@ -178,11 +169,11 @@
         <div class="row">
           <div class="input-field col s12">
             <input 
-            id="messageSubs" 
+            id="subject" 
             type="text" 
             class="validate form-control"
-            formControlName="messageSub">
-            <label for="messageSub">Message subject</label>
+            formControlName="subject">
+            <label for="subject">Message subject</label>
           </div>
         </div>
 
@@ -204,8 +195,7 @@
             class="waves-effect waves-light btn purple lighten-1"
             (click)="onCancel()"
             >Send Message</button>
-          <!-- <a class="waves-effect waves-light btn purple lighten-1" (click)="onCancel()">Send Message<i class="mdi-content-send right"></i></a> -->
-        </div>
+         </div>
       </form>
     </div>
   </div>

@@ -22,8 +22,7 @@ export class StorageService {
   // private urlCat: string = "http://192.168.182.131:3000/categories";
   private urlCat: string = "https://vast-woodland-42003.herokuapp.com/categories";
   private urlArt: string = "https://vast-woodland-42003.herokuapp.com/sites";
-  private apiKey: string = "api:key-9fe58fe05edc2b8127804db1b3797a75";
-  private mailgunUrl: string = "sandbox3e756d1080da42c599d84e9026e2a2c9.mailgun.org";
+  private urlMsg: string = "http://192.168.182.131:3000/messages";
 
   getArts() {
     this.http.get(this.urlArt).map((response: Response) => {
@@ -39,7 +38,6 @@ export class StorageService {
   }
 
   addArt(art) {
-    console.log(art)
     return this.http.post(this.urlArt, { 'site': art })
       .map(res => res.json());
   }
@@ -84,31 +82,10 @@ export class StorageService {
       .map(res => res.json());
   }
 
-  sendEmail(toEmail: string, subjectEmail: string, messageEmail: string) {
-    // console.log(toEmail)
-    // console.log(subjectEmail)
-    // console.log(messageEmail)
-    if (toEmail && subjectEmail && messageEmail) {
-      let headers = new Headers(
-        {
-          "Content-Type": "application/x-www-form-urlencoded",
-          "Authorization": "Basic " + this.apiKey
-        }
-      );
-      let options = new RequestOptions({ headers: headers });
-      let body = "from=test@example.com&to=" + toEmail + "&subject=" + subjectEmail + "&text=" + messageEmail;
-      this.http.post("https://api.mailgun.net/v3/" + this.mailgunUrl + "/messages", body, options)
-        .map(result => result.json())
-        .do(result => console.log("RESULT: ", JSON.stringify(result)))
-        .subscribe(result => {
-          console.log("SENT!");
-          toEmail = "";
-          subjectEmail = "";
-          messageEmail = "";
-        }, error => {
-          console.log(error);
-        });
-    }
-  }
+  //--------------------------------------------//
 
+  sendEmail(message) {
+    return this.http.post(this.urlMsg, { 'message': message })
+      .map(res => res.json());
+  }
 }

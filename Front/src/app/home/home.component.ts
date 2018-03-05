@@ -23,13 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.log(this.contactForm.get("messageSub").value)
-    // console.log(this.contactForm.get("email").value)
-    // console.log(this.contactForm.get("text").value)
-    this.storageService.sendEmail(
-      this.contactForm.get("email").value, 
-      this.contactForm.get("messageSub").value, 
-      this.contactForm.get("text").value)
+      this.storageService.sendEmail(this.contactForm.value).subscribe(data => this.contactForm.value); {}
   }
 
   onCancel() {
@@ -43,7 +37,7 @@ export class HomeComponent implements OnInit {
 
     /* ONDE GRAVA NO JSON */
     this.contactForm = new FormGroup({
-      'messageSub': new FormControl(contactTitle, Validators.required),
+      'subject': new FormControl(contactTitle, Validators.required),
       'email': new FormControl(contactEmail, Validators.required),
       'text': new FormControl(contactMenssage, Validators.required)
     });
