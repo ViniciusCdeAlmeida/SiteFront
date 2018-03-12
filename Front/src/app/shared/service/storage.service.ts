@@ -22,7 +22,7 @@ export class StorageService {
   // private urlCat: string = "http://192.168.182.131:3000/categories";
   private urlCat: string = "https://vast-woodland-42003.herokuapp.com/categories";
   private urlArt: string = "https://vast-woodland-42003.herokuapp.com/sites";
-  private urlMsg: string = "http://192.168.182.131:3000/messages";
+  private urlMsg: string = "https://vast-woodland-42003.herokuapp.com/messages";
 
   getArts() {
     this.http.get(this.urlArt).map((response: Response) => {

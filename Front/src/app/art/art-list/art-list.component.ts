@@ -10,7 +10,7 @@ import { CategoryService } from '../../shared/service/category.service'
 import { AuthGuard } from "../../user/guards/user.guard";
 import { Category } from '../../shared/category.model'
 
-// import { MaterializeDirective } from "angular2-materialize";
+import { MaterializeDirective } from "angular2-materialize";
 
 @Component({
   selector: 'app-art-list',
@@ -52,6 +52,5 @@ export class ArtListComponent implements OnInit{
 
   artFilter(value){
     this.filteredCate = value
-    // console.log('hey' + value)
   }
 }
