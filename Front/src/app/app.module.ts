@@ -6,6 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Angular2TokenService } from 'angular2-token';
 import { MaterializeModule, MaterializeDirective } from 'angular2-materialize';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GalleryModule } from  '@ngx-gallery/core';
+import { LightboxModule } from  '@ngx-gallery/lightbox';
+import { GallerizeModule } from  '@ngx-gallery/gallerize';
 
 import { AuthGuard } from './user/guards/user.guard'
 import { AppComponent } from './app.component';
@@ -60,7 +64,11 @@ import { ArtPipePipe } from './art/art-list/art-pipe.pipe';
     RoutesModule,
     MaterializeModule,
     HttpModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    GalleryModule,
+    LightboxModule,
+    GallerizeModule
   ],
   providers: [ArtService, CategoryService, Angular2TokenService, AuthGuard],
   bootstrap: [AppComponent]
