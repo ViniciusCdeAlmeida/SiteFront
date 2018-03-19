@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ArtPipePipe implements PipeTransform {
 
   transform(value: any, filteredCate: string, propName: string): any {
-    if(value.length === 0 || filteredCate === ''){
+    if(value == 0 || filteredCate === ''){
       return value;
     }   
     const resultArray = []
