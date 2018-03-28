@@ -1,5 +1,4 @@
-nav ul a,
-nav .brand-logo {
+nav ul a, nav .brand-logo {
   color: #444;
 }
 
@@ -15,13 +14,14 @@ p {
   min-height: 380px;
   line-height: 0;
   height: auto;
-  color: rgba(255,255,255,.9);
+  color: rgba(255, 255, 255, .9);
 }
-  .parallax-container .section {
-    width: 100%;
-  }
 
-@media only screen and (max-width : 992px) {
+.parallax-container .section {
+  width: 100%;
+}
+
+@media only screen and (max-width: 992px) {
   .parallax-container .section {
     position: absolute;
     top: 40%;
@@ -31,12 +31,11 @@ p {
   }
 }
 
-@media only screen and (max-width : 600px) {
+@media only screen and (max-width: 600px) {
   #index-banner .section {
     top: 0;
   }
 }
-
 
 .icon-block {
   padding: 0 15px;
@@ -46,48 +45,47 @@ footer.page-footer {
   margin: 0;
 }
 
-
-
-
- .parallax img 
- {
- 	 background-repeat: no-repeat;
- 	 background-size: cover;
- }
- .parallax-container
- {
- 	color: black;
- }
- @media only screen and (max-width : 600px) {
-  .parallax-container
- {
- 	color: white;
- }
+.parallax img {
+  background-repeat: no-repeat;
+  background-size: cover;
 }
- nav a.button-collapse
- {
- 	color:black;
- }
- .purple.lighten-1 {
+
+.parallax-container {
+  color: black;
+}
+
+@media only screen and (max-width: 600px) {
+  .parallax-container {
+    color: white;
+  }
+}
+
+nav a.button-collapse {
+  color: black;
+}
+
+.purple.lighten-1 {
   background-color: #CC0066 !important;
 }
+
 .teal-text.text-lighten-2 {
   color: #CC0066 !important;
 }
-.share-buttons{
-	list-style: none;
+
+.share-buttons {
+  list-style: none;
 }
 
-.share-buttons li{
-	display: inline;
+.share-buttons li {
+  display: inline;
 }
-nav
-{
-	overflow: visible;
+
+nav {
+  overflow: visible;
 }
+
 nav li a {
-    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
+  -webkit-transition: background .3s ease-in-out;
+  -moz-transition: background .3s ease-in-out;
+  transition: background .3s ease-in-out;
 }
-
