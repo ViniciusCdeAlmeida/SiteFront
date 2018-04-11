@@ -25,10 +25,9 @@
     <app-art-item *ngFor="let artEl of arts
      | artPipe:filteredCate:'category'
      | paginate: {itemsPerPage: 3, currentPage: page};
-     let i = index" 
-     [art]="artEl" 
-     [index]="i"
-     >
+     let i = index"
+     [art]="artEl"
+     [index]="i">
     </app-art-item>
   </div>
   <div class="has-text-centered" style="text-align: center">

@@ -43,7 +43,7 @@ export class ArtEditComponent implements OnInit {
       reader.onloadend = () => {
         this.image = reader.result;
         this.artForm.get('picture').setValue(this.image);
-        console.log(this.artForm.get('picture'))
+        // console.log(this.artForm.get('picture'))
       };
       reader.readAsDataURL(file);
     }
@@ -66,10 +66,10 @@ export class ArtEditComponent implements OnInit {
   onSubmit() {
     if (this.editMode) {
       this.artService.updateArt(this.id, this.artForm.value);
-      this.storageService.updateArts(this.artForm.value).subscribe(data => this.artForm.value); { }
+      this.storageService.updateArts(this.artForm.value).subscribe(data => this.artForm.value);
     } else {
       this.artService.addArt(this.artForm.value);
-      this.storageService.addArt(this.artForm.value).subscribe(data => this.artForm.value); { }
+      this.storageService.addArt(this.artForm.value).subscribe(data => this.artForm.value);
     }
     this.onCancel();
   }
