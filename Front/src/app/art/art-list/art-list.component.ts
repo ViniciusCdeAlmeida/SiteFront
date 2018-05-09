@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgModel } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
@@ -20,7 +20,7 @@ import { MaterializeDirective } from "angular2-materialize";
 })
 export class ArtListComponent implements OnInit{
   arts: Art[];
-  subscription: Subscription;
+  subscriptionArt;subscriptionCat: Subscription;
   id: number;
   auth = this.guard
   page:any
@@ -41,8 +41,10 @@ export class ArtListComponent implements OnInit{
       this.storageService.getArts()
       this.storageService.getCategories()
     });
-    this.artService.artChanged.subscribe((artss: Art[]) => {this.arts = artss;});
-    this.catService.categoryChanged.subscribe((catss: Category[]) => {this.cats = catss;});
+    this.subscriptionArt = this.artService.artChanged.subscribe((artss: Art[]) => {this.arts = artss;});
+    this.subscriptionCat = this.catService.categoryChanged.subscribe((catss: Category[]) => {this.cats = catss;});
+    this.arts = this.artService.getArts();
+    this.cats = this.catService.getCategories();
     
   }
 
@@ -53,4 +55,10 @@ export class ArtListComponent implements OnInit{
   artFilter(value){
     this.filteredCate = value
   }
+
+  ngOnDestroy(){
+    this.subscriptionArt.unsubscribe();
+    this.subscriptionCat.unsubscribe();
+  }
+  
 }

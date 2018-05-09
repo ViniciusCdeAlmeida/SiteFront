@@ -51,7 +51,7 @@ export class ArtEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.id = +params['id'];
+      this.id = this.artService.getArts()[+params['id']].id;
       this.editMode = params['id'] != null;
       this.initForm();
       this.storageService.getCategories();

@@ -14,6 +14,7 @@ export class CategoryItemComponent implements OnInit {
   @Input() category: Category;
   @Input() index: number;
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }

@@ -30,7 +30,7 @@ export class CategoryEditComponent implements OnInit {
   ngOnInit() {
 
     this.route.params.subscribe((params: Params) => {
-      this.id = +params['id'];
+      this.id = this.categoryService.getCategories()[+params['id']].id;
       this.editMode = params['id'] != null;
       this.initForm();});
   }

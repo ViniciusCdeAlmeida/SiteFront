@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router'
 import { Subscription } from 'rxjs/Subscription';
 
@@ -15,7 +15,7 @@ import {CategoryService} from '../../shared/service/category.service';
 
 export class CategoryListComponent implements OnInit {
 
-  categories: Category[] = [];
+  categories: Category[];
   subscription: Subscription;
 
   constructor(
@@ -27,11 +27,15 @@ export class CategoryListComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.storageService.getCategories()});
-    this.categoryService.categoryChanged.subscribe(
-      (cats: Category[]) => {this.categories = cats;});
+    this.subscription = this.categoryService.categoryChanged.subscribe((cats: Category[]) => {this.categories = cats;});
+    this.categories = this.categoryService.getCategories();
   }
 
   onNewCategory() {
     this.router.navigate(['new'], {relativeTo: this.route});
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }
