@@ -45,11 +45,11 @@ export class CategoryEditComponent implements OnInit {
     if (this.editMode) {
         this.categoryService.updateCategory(this.subID, this.categoryForm.value);
         this.storageService.updateCategories(this.categoryForm.value).subscribe(data => this.categoryForm.value)
+        this.onCancel();
       } else {
         this.categoryService.addCategory(this.categoryForm.value);
         this.storageService.addCategory(this.categoryForm.value).subscribe(data => this.categoryForm.value);{}
       }
-      this.onCancel();
   }
 
   private initForm() {

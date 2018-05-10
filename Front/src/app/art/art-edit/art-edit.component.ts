@@ -70,7 +70,7 @@ export class ArtEditComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['../'], { relativeTo: this.route });
+    this.router.navigate(['/art'], { relativeTo: this.route });
   }
 
   private initForm() {

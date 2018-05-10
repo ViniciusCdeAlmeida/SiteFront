@@ -28,9 +28,7 @@ export class ArtDetailComponent implements OnInit {
 
     this.route.params.subscribe((params: Params) => {
       this.artID = this.artService.getArts()[+params['id']].id;
-      this.storageService.getArt(this.artID).subscribe(
-          art => this.art = art);
-    });
+      this.storageService.getArt(this.artID).subscribe(art => this.art = art);});
   }
 
   onEditArt(){
@@ -44,7 +42,7 @@ export class ArtDetailComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['../'], { relativeTo: this.route });
+    this.router.navigate(['/art'], { relativeTo: this.route });
   }
 
 }
