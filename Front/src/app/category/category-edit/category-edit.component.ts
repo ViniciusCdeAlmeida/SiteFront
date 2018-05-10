@@ -15,6 +15,7 @@ import {CategoryService} from '../../shared/service/category.service'
 export class CategoryEditComponent implements OnInit {
 
   id: number;
+  subID: number;
   editMode = false;
   categoryForm: FormGroup;
   
@@ -30,7 +31,7 @@ export class CategoryEditComponent implements OnInit {
   ngOnInit() {
 
     this.route.params.subscribe((params: Params) => {
-      this.id = this.categoryService.getCategories()[+params['id']].id;
+      this.subID = params['id'];
       this.editMode = params['id'] != null;
       this.initForm();});
   }
@@ -42,11 +43,11 @@ export class CategoryEditComponent implements OnInit {
   save(){
 
     if (this.editMode) {
-        this.categoryService.updateCategory(this.id, this.categoryForm.value);
+        this.categoryService.updateCategory(this.subID, this.categoryForm.value);
+        this.storageService.updateCategories(this.categoryForm.value).subscribe(data => this.categoryForm.value)
       } else {
         this.categoryService.addCategory(this.categoryForm.value);
-        this.storageService.addCategory(this.categoryForm.value).
-        subscribe(data => this.categoryForm.value);{}
+        this.storageService.addCategory(this.categoryForm.value).subscribe(data => this.categoryForm.value);{}
       }
       this.onCancel();
   }
@@ -56,6 +57,7 @@ export class CategoryEditComponent implements OnInit {
     let catID: number;
 
     if (this.editMode) {
+      this.route.params.subscribe((params: Params) => {this.id = this.categoryService.getCategories()[params['id']].id;});
       const category = this.categoryService.getCategory(this.id);
       categoryTitle = category[0].title;
       catID = category[0].id;

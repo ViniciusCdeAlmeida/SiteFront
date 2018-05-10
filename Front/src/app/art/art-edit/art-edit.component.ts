@@ -20,7 +20,7 @@ import { Category } from '../../shared/category.model'
 export class ArtEditComponent implements OnInit {
 
   id: number;
-  value: number;
+  subID: number;
   editMode = false;
   artForm: FormGroup;
   art: Art = new Art;
@@ -51,21 +51,16 @@ export class ArtEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.id = this.artService.getArts()[+params['id']].id;
+      this.subID = params['id']
       this.editMode = params['id'] != null;
       this.initForm();
-      this.storageService.getCategories();
-    }
-    );
-    this.categoryService.categoryChanged.subscribe(
-      (cats: Category[]) => {
-        this.categories = cats;
-      });
+      this.storageService.getCategories();});
+    this.categoryService.categoryChanged.subscribe((cats: Category[]) => {this.categories = cats;});
   }
 
   onSubmit() {
     if (this.editMode) {
-      this.artService.updateArt(this.id, this.artForm.value);
+      this.artService.updateArt(this.subID, this.artForm.value);
       this.storageService.updateArts(this.artForm.value).subscribe(data => this.artForm.value);
     } else {
       this.artService.addArt(this.artForm.value);
@@ -86,6 +81,7 @@ export class ArtEditComponent implements OnInit {
     let artId: number;
 
     if (this.editMode) {
+      this.route.params.subscribe((params: Params) => {this.id = this.artService.getArts()[params['id']].id;});
       const art = this.artService.getArt(this.id);
       artTitle = art[0].title;
       artImgpath = art[0].picture;
