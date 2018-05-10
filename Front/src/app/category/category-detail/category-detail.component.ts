@@ -13,7 +13,7 @@ import {StorageService} from '../../shared/service/storage.service';
 })
 export class CategoryDetailComponent implements OnInit {
   
-  cat: any = this.storageService.getCategories();
+  cat: any;
   cats: Category[] = [];
   catID: number;
 

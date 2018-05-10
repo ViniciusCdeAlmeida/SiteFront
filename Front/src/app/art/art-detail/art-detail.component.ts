@@ -13,7 +13,7 @@ import {ArtService} from '../../shared/service/art.service'
 })
 export class ArtDetailComponent implements OnInit {
 
-  art: any = this.storageService.getArts();
+  art: any;
   arts: Art[] = []
   artID:number
 
