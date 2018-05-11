@@ -39,6 +39,7 @@ children: [
     { path: 'new', component: CategoryEditComponent ,canActivate: [AuthGuard]},
     { path: ':id', component: CategoryDetailComponent ,canActivate: [AuthGuard]},
     { path: ':id/edit', component: CategoryEditComponent ,canActivate: [AuthGuard]},
+    { path: ':id/del', component: CategoryEditComponent ,canActivate: [AuthGuard]},
   ] 
 },
 ];

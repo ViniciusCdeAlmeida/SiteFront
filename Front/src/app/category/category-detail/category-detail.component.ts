@@ -28,7 +28,7 @@ export class CategoryDetailComponent implements OnInit {
 
     this.route.params.subscribe((params: Params) => {
       this.catID = this.catService.getCategories()[+params['id']].id;
-      this.storageService.getCategory(this.catID).subscribe(cat => this.cat = cat);});
+    });
       
   }
 
@@ -36,10 +36,8 @@ export class CategoryDetailComponent implements OnInit {
     this.router.navigate(['edit'], {relativeTo: this.route});
   }
     
-  deleteCat(cats){
-    this.storageService.deleteCategory(this.catID).subscribe(null);
-    this.catService.deleteCategory(this.catID);
-    this.onCancel();
+  onDeleteCat(){
+    this.router.navigate(['del'], {relativeTo: this.route});
   }
 
   onCancel() {

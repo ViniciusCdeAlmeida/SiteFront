@@ -33,7 +33,7 @@ export class CategoryListComponent implements OnInit {
   onNewCategory() {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
-
+  
   ngOnDestroy(){
     this.subscription.unsubscribe();
   }
