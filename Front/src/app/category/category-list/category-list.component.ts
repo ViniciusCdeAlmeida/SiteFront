@@ -27,7 +27,6 @@ export class CategoryListComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {this.storageService.getCategories()});
     this.subscription = this.categoryService.categoryChanged.subscribe((cats: Category[]) => {this.categories = cats;});
-    // this.categories = this.categoryService.getCategories();
   }
 
   onNewCategory() {
