@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
+import { HttpClient} from '@angular/common/http';
+import { Response } from '@angular/http';
 import { Observable } from 'rxjs';
-//import 'rxjs/add/operator/map';
-
-
-
+import { map } from 'rxjs/operators';
 import { Art } from '../art.model';
 import { Category } from '../category.model';
 import { CategoryService } from '../../shared/service/category.service';
@@ -14,7 +11,7 @@ import { ArtService } from './art.service'
 @Injectable()
 export class StorageService {
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private artService: ArtService,
     private categoryService: CategoryService) { }
 
@@ -25,67 +22,62 @@ export class StorageService {
   private urlMsg: string = "https://vast-woodland-42003.herokuapp.com/messages";
 
   getArts() {
-    this.http.get(this.urlArt).map((response: Response) => {
-      const arts: Art[] = response.json();
-      return arts;
-    }).subscribe(
-      (art: Art[]) => { this.artService.setArts(art) });
+    this.http.get(this.urlArt).subscribe(
+      (art: Art[]) => {this.artService.setArts(art)});
   }
 
   getArt(id) {
     return this.http.get(this.urlArt + '/' + id)
-      .map(art => art.json());
+      .pipe(map(art => art));
   }
 
   addArt(art) {
     return this.http.post(this.urlArt, { 'site': art })
-      .map(res => res.json());
+      .pipe(map(art => art));
   }
 
   updateArts(art) {
     return this.http.put(this.urlArt + '/' + art.id, { 'site': art })
-      .map(res => res.json());
+      .pipe(map(art => art));
   }
 
   deleteArt(id) {
     return this.http.delete(this.urlArt + '/' + id)
-      .map(res => res.json());
+      .pipe(map(art => art));
   }
 
   //--------------------------------------------//
 
   getCategories() {
-    this.http.get(this.urlCat).map((response: Response) => {
-      const cats: Category[] = response.json();
-      return cats;
-    }).subscribe(
-      (cat: Category[]) => { this.categoryService.setCategories(cat) });
+    this.http.get(this.urlCat).subscribe(
+      (cat: Category[]) => {this.categoryService.setCategories(cat)
+    });
   }
 
   getCategory(id) {
     return this.http.get(this.urlCat + '/' + id)
-      .map(category => category.json());
+      .pipe(map(category => category));
   }
 
   addCategory(category) {
     return this.http.post(this.urlCat, { 'category': category })
-      .map(res => res.json());
+      .pipe(res => res);
   }
 
   updateCategories(category) {
     return this.http.put(this.urlCat + '/' + category.id, { 'category': category })
-      .map(res => res.json());
+      .pipe(res => res);
   }
 
   deleteCategory(id) {
     return this.http.delete(this.urlCat + '/' + id)
-      .map(res => res.json());
+      .pipe(res => res);
   }
 
   //--------------------------------------------//
 
   sendEmail(message) {
     return this.http.post(this.urlMsg, { 'message': message })
-      .map(res => res.json());
+      .pipe(res => res);
   }
 }

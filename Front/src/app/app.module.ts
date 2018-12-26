@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { Angular2TokenService } from 'angular2-token';
 import { MaterializeModule, MaterializeDirective } from 'angular2-materialize';
@@ -60,6 +61,7 @@ import { ArtPipePipe } from './art/art-list/art-pipe.pipe';
     RoutesModule,
     MaterializeModule,
     HttpModule,
+    HttpClientModule,
     NgxPaginationModule
   ],
   providers: [ArtService, CategoryService, Angular2TokenService, AuthGuard],
